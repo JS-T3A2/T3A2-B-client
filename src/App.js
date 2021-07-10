@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,6 +20,14 @@ function App() {
           Learn React
         </a>
       </header>
+      <button
+        onClick={async () => {
+          const response = await axios.get('/api/l');
+          console.log(response);
+        }}
+      >
+        test
+      </button>
     </div>
   );
 }
