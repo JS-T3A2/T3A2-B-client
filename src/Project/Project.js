@@ -19,6 +19,9 @@ const Project = () => {
         <Link to="/booking">
           <button type="button">Booking</button>
         </Link>
+        <Link to="/contact">
+          <button type="button">Get in touch</button>
+        </Link>
         <Link to="/cart">
           <button type="button">Cart</button>
         </Link>
