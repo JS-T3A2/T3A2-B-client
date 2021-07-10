@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@api": ["shared/utils/api/index"],
+      "@components": ["shared/components/index"],
+      "@hooks": ["shared/hooks/index"],
+      "@store": ["shared/store/index"],
+      "@theme": ["shared/theme/index"],
+      "@utils": ["shared/utils/index"]
+    }
+  },
+  "include": ["src"]
+}
