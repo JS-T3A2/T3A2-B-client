@@ -6,20 +6,18 @@ import { IS_AUTH } from '@utils';
 
 const App = () => {
   const { data, error, loading } = useQuery(IS_AUTH);
-  const app = useSelector(({ app }) => app);
+  const { adminData } = useSelector(({ app }) => app);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
+    if (data && !error && !loading) {
+      console.log(data);
+    }
+  }, [data, error, loading]);
 
   return (
     <div>
-      <h1>Apps</h1>
-      <pre>{JSON.stringify({ app }, null, 2)}</pre>
+      <h1>Learn React</h1>
+      {loading ? 'Loading...' : <h2>{adminData}</h2>}
     </div>
   );
 };
