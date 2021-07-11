@@ -1,30 +1,45 @@
-import { Link } from 'react-router-dom';
+import { useDevice } from '@hooks';
 
+//  TODO: Separate app bar into its own file.
+// import { AppBar } from './components';
 import Routes from './Routes';
-import { AppBarContainer, BodyContainer, FooterContainer, Wrapper } from './Styles';
+import { AppBarContainer, BodyContainer, FooterContainer, StyledLink, Wrapper } from './Styles';
 
 const Project = () => {
+  const { display } = useDevice();
+
   return (
     <Wrapper>
       <AppBarContainer>
-        <Link to="/">
-          <h1>XLEXTENDS</h1>
-        </Link>
-        <Link to="/">
-          <button type="button">Home</button>
-        </Link>
-        <Link to="/catalog">
-          <button type="button">Catalog</button>
-        </Link>
-        <Link to="/booking">
-          <button type="button">Booking</button>
-        </Link>
-        <Link to="/contact">
-          <button type="button">Get in touch</button>
-        </Link>
-        <Link to="/cart">
-          <button type="button">Cart</button>
-        </Link>
+        <div style={{ flex: 1 }}>
+          <StyledLink to="/">
+            <h1>XLEXTENDS</h1>
+          </StyledLink>
+        </div>
+        {display === 'desktop' && (
+          <div style={{ display: 'flex', justifyContent: 'center', flex: 1 }}>
+            <StyledLink activeClassName="selected" exact to="/">
+              Home
+            </StyledLink>
+            <StyledLink activeClassName="selected" to="/catalog">
+              Catalog
+            </StyledLink>
+            <StyledLink activeClassName="selected" to="/bookings">
+              Bookings
+            </StyledLink>
+            <StyledLink activeClassName="selected" to="/contact">
+              Contact
+            </StyledLink>
+          </div>
+        )}
+        <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-end' }}>
+          <StyledLink activeClassName="selected" to="/cart">
+            <button>Cart</button>
+          </StyledLink>
+        </div>
+        {display !== 'desktop' && <button>BURGUR</button>}
+        {/* TODO: Separate app bar into its own file. */}
+        {/* <AppBar /> */}
       </AppBarContainer>
       <BodyContainer>
         <Routes />
