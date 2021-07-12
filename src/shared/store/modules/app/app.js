@@ -1,6 +1,6 @@
 export const ActionTypes = { ADMIN_DATA_SET: 'app/ADMIN_DATA_SET' };
 
-const initialState = { adminData: null };
+const initialState = { adminData: undefined };
 
 export const appReducer = (state = initialState, { payload, type }) => {
   switch (type) {

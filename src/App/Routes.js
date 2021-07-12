@@ -5,7 +5,7 @@ import { Project } from '../Project';
 
 const Routes = () => (
   <Switch>
-    <Route component={Admin} exact path="/admin" />
+    <Route component={Admin} path="/admin" />
     <Route component={Project} path="/" />
   </Switch>
 );
